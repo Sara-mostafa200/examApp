@@ -13,3 +13,24 @@ declare type Question = {
   exam:Exam
   createdAt: string;
 };
+
+
+declare type CheckResponse = {
+  correct: number;
+  wrong: number;
+  total: string;
+  WrongQuestions: {
+    QID: string;
+    Question: string;
+    inCorrectAnswer: string;
+    correctAnswer: string;
+    
+  }[];
+  correctQuestions: {
+    QID: string;
+    Question: string;
+    inCorrectAnswer: string;
+    correctAnswer: string;
+    
+  }[];
+};

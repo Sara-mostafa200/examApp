@@ -6,6 +6,7 @@ import avatar from '@/../../public/assets/images/avatar.jpg'
 
 
 export default function UserInfo() {
+  
   return (
     <div className='mt-10 flex flex-col items-center   lg:flex-row gap-14  lg:gap-[6rem] bg-[#FFFFFF] py-8 px-4 rounded-2xl shadow-lg'>
       {/* image */}

@@ -1,8 +1,8 @@
 import getAuthToken from "../utils/auth-headers";
 
-export async function getAllExam(){
+export async function getAllExam(id:string){
     const headerToken = await getAuthToken();
-    const response = await fetch(`${process.env.API}/exams`,{
+    const response = await fetch(`${process.env.API}/exams?subject=${id}`,{
         method:"GET",
         headers: {
             token: headerToken

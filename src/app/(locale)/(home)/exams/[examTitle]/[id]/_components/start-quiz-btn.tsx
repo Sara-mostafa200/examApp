@@ -2,12 +2,14 @@
 import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 import StartQuizOverlay from "./start-quiz-overlay";
+import { useSearchParams } from "next/navigation";
 
-export default function StartQuizBtn() {
+export default function StartQuizBtn({examId}:{examId :string}) {
     // hooks
   const [showLayout, setshowLayout] = useState(false);
-
-
+  
+  
+  
   return (
     <>
       <Button
@@ -18,7 +20,7 @@ export default function StartQuizBtn() {
       >
         Start
       </Button>
-      {showLayout && <StartQuizOverlay setshowLayout={setshowLayout}  />}
+      {showLayout && <StartQuizOverlay setshowLayout={setshowLayout} examId={examId} />}
     </>
   );
 }

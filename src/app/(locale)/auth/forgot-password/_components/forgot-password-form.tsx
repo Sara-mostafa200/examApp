@@ -2,7 +2,6 @@
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -13,7 +12,6 @@ import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import ContinueWith from "../../_components/continue-with";
 import {
   forgetPasswordSchema,

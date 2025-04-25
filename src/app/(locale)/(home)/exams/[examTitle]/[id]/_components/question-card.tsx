@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React, { SetStateAction, useState } from "react";
 import {
   Form,
@@ -10,7 +9,6 @@ import {
 } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { ExamSchema, TExamSchema } from "@/lib/schemes/exam.schema";
@@ -40,7 +38,7 @@ export default function QuestionCard({ questions , setcloseLayout  , setshowScor
   });
 
   // useMutation
-  const {isPending , isError , CheckQuestion } = useCheckQuestions()
+  const {isPending , CheckQuestion } = useCheckQuestions()
  
   // function
   const onSubmit = (values: TExamSchema) => {

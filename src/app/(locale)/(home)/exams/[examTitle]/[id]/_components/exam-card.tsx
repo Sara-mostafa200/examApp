@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
 import html from "@/../../public/assets/images/html.png";
@@ -8,7 +7,7 @@ export default function ExamCards({exams}: {exams : Exam[]}) {
   return (
     <>
     {
-    exams.map((exam) => <div className="bg-white w-full font-inter py-4 px-6 flex items-center justify-between">
+    exams.map((exam) => <div key={exam._id} className="bg-white w-full font-inter py-4 px-6 flex items-center justify-between">
       {/* right content */}
       <div className="right flex gap-6 items-center">
         {/* image */}

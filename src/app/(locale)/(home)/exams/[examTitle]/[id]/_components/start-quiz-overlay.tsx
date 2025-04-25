@@ -21,7 +21,7 @@ export default function StartQuizOverlay({setshowLayout , examId } : {setshowLay
 
   };
 
-   const {payload , isError ,isPending} = useQuestion(examId)
+   const {payload } = useQuestion(examId)
    
   return (
     <>

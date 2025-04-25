@@ -3,7 +3,8 @@ import React, { forwardRef, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 
 //{placeholder}:{placeholder:string}
-export const PasswordInput = forwardRef<
+// eslint-disable-next-line react/display-name
+export  const PasswordInput = forwardRef<
   HTMLInputElement,
   React.ComponentProps<typeof Input>
 >((props, ref) => {

@@ -1,6 +1,5 @@
 "use client"
 
-import { TrendingUp } from "lucide-react"
 import {
   Label,
   PolarGrid,
@@ -18,6 +17,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { ChartConfig, ChartContainer } from "@/components/ui/chart"
+// eslint-disable-next-line prefer-const
 let chartData = [
   { browser: "safari", visitors: 0, fill: "var(--color-safari)" },
 ]

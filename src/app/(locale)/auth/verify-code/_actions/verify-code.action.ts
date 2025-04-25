@@ -12,7 +12,7 @@ export async function verifyCode(verifyCodeInputs: TverifySchema) {
     },
   });
 
-  const payload: ApiResponse<{}> = await response.json();
+  const payload: ApiResponse<object> = await response.json();
 
   if ("code" in payload) throw new Error(payload.message);
 

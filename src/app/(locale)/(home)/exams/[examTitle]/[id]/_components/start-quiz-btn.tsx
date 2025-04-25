@@ -2,7 +2,6 @@
 import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 import StartQuizOverlay from "./start-quiz-overlay";
-import { useSearchParams } from "next/navigation";
 
 export default function StartQuizBtn({examId}:{examId :string}) {
     // hooks

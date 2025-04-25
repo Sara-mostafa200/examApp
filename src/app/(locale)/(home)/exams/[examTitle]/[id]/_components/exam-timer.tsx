@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import React, { SetStateAction, useEffect, useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import timer from "@/../../public/assets/images/timer.svg";
 
 type ExamTimerProps = {

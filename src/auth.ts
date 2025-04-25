@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { NextAuthOptions, User } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { JSON_HEADERS } from "./lib/constants/api.constant";

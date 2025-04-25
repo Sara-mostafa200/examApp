@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { isValidPhoneNumber } from "libphonenumber-js";
 
 // schemes
 export const registerSchema = z

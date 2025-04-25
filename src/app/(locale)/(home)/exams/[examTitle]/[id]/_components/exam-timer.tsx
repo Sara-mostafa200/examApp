@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { SetStateAction, useEffect, useState } from 'react'
 import timer from "@/../../public/assets/images/timer.svg";
 
 type ExamTimerProps = {
@@ -9,12 +9,13 @@ type ExamTimerProps = {
   onTimerChange ?: (time : Date) => void
 }
 
-export default function ExamTimer({time , onTimerEnd , onTimerChange  } : ExamTimerProps ) {
+export default function ExamTimer({time , onTimerEnd , onTimerChange } : ExamTimerProps ) {
     // hooks
     const [date, setdate] = useState(new Date(0).setMinutes(time))
 
     // useEffect
     useEffect(() => {
+
         //  interval function to change timer
         const timerId = setInterval(() => {
             // set new timer in date 
@@ -23,7 +24,9 @@ export default function ExamTimer({time , onTimerEnd , onTimerChange  } : ExamTi
 
             // check if timer end fire onTimerEnd function
             if (currentTime.getMinutes() === 0 && currentTime.getSeconds() === 0) {
-                onTimerEnd?.();
+                
+                setTimeout(()=>{onTimerEnd?.();},10)
+                
                 
                 
                 window.clearInterval(timerId);
@@ -49,6 +52,7 @@ export default function ExamTimer({time , onTimerEnd , onTimerChange  } : ExamTi
 
             {/* time */}
             <span className="text-[#11CE19] text-xl">
+              {/* format number in 2 digit */}
                 {Intl.DateTimeFormat("en-US" ,{
                     minute: "2-digit",
                     second: "2-digit",

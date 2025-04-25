@@ -17,6 +17,8 @@ import ContinueWith from "../../_components/continue-with";
 import { loginSchema, TloginSchema } from "@/lib/schemes/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
+import { toast } from "sonner";
+
 
 export default function LoginForm() {
   // hook
@@ -30,8 +32,8 @@ export default function LoginForm() {
 
   // submit handler
   const onSubmit: SubmitHandler<TloginSchema> = async (values) => {
-    
-    const response = await signIn("credentials" , {
+    try{
+      const response = await signIn("credentials" , {
       callbackUrl:'/dashboard',
       redirect:false,
       email:values.email,
@@ -43,6 +45,15 @@ export default function LoginForm() {
     }
 
     
+    if(response?.error){
+      throw new Error(response.error)  
+      
+    }
+    }catch(error){
+      toast((error as Error).message ,{
+        className:"!text-error !text-lg !font-medium"
+      })
+    }
     
     
   };

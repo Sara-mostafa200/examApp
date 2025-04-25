@@ -18,8 +18,8 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { ChartConfig, ChartContainer } from "@/components/ui/chart"
-const chartData = [
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
+let chartData = [
+  { browser: "safari", visitors: 0, fill: "var(--color-safari)" },
 ]
 
 const chartConfig = {
@@ -32,7 +32,10 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function ScoreChart() {
+export function ScoreChart({percentage} : {percentage: string}) {
+  const ExamPercentage = parseInt(percentage); 
+  chartData[0].visitors = ExamPercentage;
+
   return (
     <Card className="flex flex-col border-none shadow-none ">
       <CardHeader className="items-center  h-0 ">
@@ -47,7 +50,7 @@ export function ScoreChart() {
           <RadialBarChart
             data={chartData}
             startAngle={0}
-            endAngle={250}
+            endAngle={ExamPercentage}
             innerRadius={80}
             outerRadius={110}
           >

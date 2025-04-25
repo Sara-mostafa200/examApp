@@ -25,7 +25,7 @@ export default function Quizes() {
     }
   };
 
-  console.log(subjectsData);
+  
 
   useEffect(() => {
     getAllSubjects();

@@ -2,7 +2,7 @@ import {  useMutation } from "@tanstack/react-query";
 import { ForgotPassword } from "../_actions/forgot-password.action";
 import { TforgetPasswordSchema } from "@/lib/schemes/auth.schema";
 import { toast } from "sonner";
-import { error } from "console";
+
 
 export default function useForgotPassword() {
   const {isPending , mutate} =useMutation({

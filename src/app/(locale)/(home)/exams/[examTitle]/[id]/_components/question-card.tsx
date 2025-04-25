@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { SetStateAction, useState } from "react";
 import {
   Form,
   FormControl,
@@ -16,8 +16,16 @@ import { Button } from "@/components/ui/button";
 import { ExamSchema, TExamSchema } from "@/lib/schemes/exam.schema";
 import { cn } from "@/lib/utils/cn";
 import ExamTimer from "./exam-timer";
+import useCheckQuestions from "../_hooks/use-check-questions";
+type QuestionCardProps = {
+  questions: Question[],
+  setshowQuestionCard : React.Dispatch<SetStateAction<boolean>> ,
+  setcloseLayout :React.Dispatch<SetStateAction<boolean>> ,
+  setshowScoreCard :React.Dispatch<SetStateAction<boolean>>,
+  setExamResults: React.Dispatch<SetStateAction<"" | CheckResponse>>, 
+}
 
-export default function QuestionCard({ questions }: { questions: Question[] }) {
+export default function QuestionCard({ questions , setcloseLayout  , setshowScoreCard , setshowQuestionCard , setExamResults }: QuestionCardProps) {
   // hooks
   const [step, setstep] = useState(0);
   const [answer, setanswer] = useState("");
@@ -31,11 +39,28 @@ export default function QuestionCard({ questions }: { questions: Question[] }) {
     resolver: zodResolver(ExamSchema),
   });
 
+  // useMutation
+  const {isPending , isError , CheckQuestion } = useCheckQuestions()
+ 
   // function
   const onSubmit = (values: TExamSchema) => {
-    console.log(values);
+    CheckQuestion(values , {
+      onSuccess: (data) => {
+        setExamResults(data)
+        setshowQuestionCard(false);
+    setshowScoreCard(true);
+      }
+    });
+
+    
   };
 
+  const onTimerEnd = () => {
+    form.handleSubmit(onSubmit)()
+    setcloseLayout(false);
+   
+  }
+ 
   
   
   return (
@@ -50,7 +75,7 @@ export default function QuestionCard({ questions }: { questions: Question[] }) {
           </span>
 
           {/* timer */}
-          <ExamTimer time={questions[0].exam.duration} onTimerChange={(date) => {form.setValue("time", date.getMinutes())}} />
+          <ExamTimer time={questions[0].exam.duration} onTimerEnd={onTimerEnd}  onTimerChange={(date) => {form.setValue("time", date.getMinutes())}} />
         </div>
 
         {/* dots */}
@@ -85,6 +110,7 @@ export default function QuestionCard({ questions }: { questions: Question[] }) {
                   {/* control */}
                   <FormControl>
                     <RadioGroup
+                     disabled={isPending}
                       onValueChange={(value) => {
                         setanswer(value);
                         field.onChange(
@@ -126,12 +152,13 @@ export default function QuestionCard({ questions }: { questions: Question[] }) {
 
             {/* action */}
             <div className=" flex flex-col lg:flex-row gap-5 lg:gap-0 justify-between mt-12">
+
               {/* Prev */}
               <Button
                 variant={"secondary"}
                 className="h-14 rounded-full text-2xl font-medium px-28 "
                 type="button"
-                disabled={step === 0}
+                disabled={step === 0 || isPending}
                 onClick={() =>  {
                   const prevAnswer =  form.getValues(`answers.${step - 1}`);
                   
@@ -153,6 +180,7 @@ export default function QuestionCard({ questions }: { questions: Question[] }) {
                 className="h-14 rounded-full text-2xl font-medium px-28  "
                 type={ step < questions.length - 1 ? "button" : "submit"}
                 disabled={(() => {
+                  if (isPending) return true;
                   const currentAnswer = form.getValues(`answers.${step}`);
 
                   if (currentAnswer?.correct) return false;
@@ -163,7 +191,11 @@ export default function QuestionCard({ questions }: { questions: Question[] }) {
 
                 }
                 onClick={() => {
-                  if(step === questions.length-1) return ;
+                  if(step === questions.length-1) {
+                    
+                    
+                    return
+                  } ;
 
                   const nextAnswer =  form.getValues(`answers.${step + 1}`);
                   

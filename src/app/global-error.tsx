@@ -14,7 +14,7 @@ export default function Error({
       <body>
         <main className="flex flex-col gap-8 min-h-screen items-center justify-center">
           {/* Headline */}
-          <h2 className="text-main font-bold text-6xl">
+          <h2 className="text-custom-main font-bold text-6xl">
             Something went wrong !!
           </h2>
 

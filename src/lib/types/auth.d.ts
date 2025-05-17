@@ -1,5 +1,4 @@
-
-declare type ApplicationUser ={
+declare type ApplicationUser = {
     _id: string,
     username: string,
     firstName: string,
@@ -11,13 +10,13 @@ declare type ApplicationUser ={
 }
 
 declare type LoginResponse = {
-    token:string,
-    user:ApplicationUser
+    token: string,
+    user: ApplicationUser
 }
 
 declare type RegisterResponse = {
-    token:string,
-    user : ApplicationUser
+    token: string,
+    user: ApplicationUser
 }
 
 declare type ForgotPasswordResponse = {
@@ -25,6 +24,6 @@ declare type ForgotPasswordResponse = {
 }
 
 declare type SetPasswordResponse = {
-    token:string
+    token: string
 }
 

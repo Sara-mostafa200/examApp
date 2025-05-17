@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { NextAuthOptions, User } from "next-auth";
+import { NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { JSON_HEADERS } from "./lib/constants/api.constant";
 
@@ -27,8 +27,6 @@ export const authOptions: NextAuthOptions = {
         });
 
         const payload: ApiResponse<LoginResponse> = await response.json();
-
-        
 
         if ("code" in payload) {
           throw new Error(payload.message);

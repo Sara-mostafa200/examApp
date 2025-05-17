@@ -35,7 +35,7 @@ export default function RegisterForm() {
     },
   });
 
-  const {isPending , register}= useRegister()
+  const {isPending , register } = useRegister()
 
 
   
@@ -59,7 +59,7 @@ export default function RegisterForm() {
             render={({ field }) => (
               <FormItem>
                 {/* UserName label */}
-                <FormLabel className="sr-only"> UserName </FormLabel>
+                <FormLabel className="sr-only"> User name </FormLabel>
 
                 {/* UserName input */}
                 <FormControl>
@@ -243,7 +243,7 @@ export default function RegisterForm() {
         {/* Link */}
         <span className="text-[#313131] text-base text-center mt-4 block">
           Already have an account?{" "}
-          <Link href="/auth/login" className="text-main">
+          <Link href="/auth/login" className="text-custom-main">
             Login
           </Link>
         </span>

@@ -20,7 +20,7 @@ export default function UserInfo() {
       <div className='w-4/6 flex flex-col gap-6'>
          {/* info */}
         <div className='flex flex-col gap-1'>
-          <p className='text-3xl font-bold text-main'>Sara Mostafa</p>
+          <p className='text-3xl font-bold text-custom-main'>Sara Mostafa</p>
         <span className='text-[#979CA3] text-xl'>Voluptatem aut</span>
         </div>
         
@@ -33,7 +33,7 @@ export default function UserInfo() {
           <div className='flex gap-4 items-center'>
             {/* icon */}
             <div className='shadow-lg size-16 rounded-xl flex items-center justify-center'>
-            <Flag size={32} className='text-main ' />
+            <Flag size={32} className='text-custom-main ' />
             </div>
 
             {/* data */}
@@ -50,7 +50,7 @@ export default function UserInfo() {
           <div className='flex gap-4 items-center'>
             {/* icon */}
             <div className='shadow-lg size-16 rounded-xl flex items-center justify-center'>
-            <Clock5  size={32} className='text-main ' />
+            <Clock5  size={32} className='text-custom-main ' />
             </div>
 
             {/* data */}
@@ -67,7 +67,7 @@ export default function UserInfo() {
            <div className='flex gap-4 items-center'>
             {/* icon */}
             <div className='shadow-lg size-16 rounded-xl flex items-center justify-center'>
-            <CircleCheck   size={32} className='text-main ' />
+            <CircleCheck   size={32} className='text-custom-main ' />
             </div>
 
             {/* data */}

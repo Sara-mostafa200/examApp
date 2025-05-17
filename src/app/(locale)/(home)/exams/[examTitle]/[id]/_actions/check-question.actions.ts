@@ -17,6 +17,5 @@ export async function CheckQuestion(ExamAnswers:TExamSchema ) {
     const payload:ApiResponse<CheckResponse> = await response.json();
 
     if ("code" in payload) throw new Error(payload.message);
-    
     return payload;
  }

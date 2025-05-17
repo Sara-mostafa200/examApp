@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Form,
   FormControl,
@@ -18,20 +19,19 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import useVerifyCode from "../_hooks/use-verify-code";
 
 export default function VerifyCodeForm() {
-  // hook
+  // Form & Validation
   const form = useForm<TverifySchema>({
-    resolver:zodResolver(verifySchema),
-    defaultValues:{
+    resolver: zodResolver(verifySchema),
+    defaultValues: {
       resetCode:'',
     }
   });
 
-   const {isPending , verifyCode }= useVerifyCode()
+  const { isPending , verifyCode } = useVerifyCode()
 
   // onSubmit Function
-  const onSubmit:SubmitHandler<TverifySchema> = (values) => { 
+  const onSubmit: SubmitHandler<TverifySchema> = (values) => {
     verifyCode(values)
-    
   }
 
   return (
@@ -69,15 +69,14 @@ export default function VerifyCodeForm() {
 
         {/* Link */}
         <span
-          
-          className="text-[#313131] text-base text-end mt-4 block"
+          className="text-gray-900 text-base text-end mt-4 block"
         >
-         Didn’t receive a code?  <Link href="/auth/login" className="text-main">Resend</Link>
+          Didn’t receive a code? <Link href="/auth/login" className="text-custom-main">Resend</Link>
         </span>
 
         {/* Button */}
-        <Button className="w-full rounded-[1.25rem] h-[56px] mt-10 " disabled={isPending||(form.formState.isSubmitted && !form.formState.isValid)}>
-         Verify
+        <Button className="w-full rounded-2xl h-14 mt-10" disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}>
+          Verify
         </Button>
 
         {/* Continue with */}

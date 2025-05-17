@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 
 export default function AuthNav() {
-    
   const NavLinks = [
     {
       title: "Sign in",
@@ -24,7 +23,7 @@ export default function AuthNav() {
         {NavLinks.map((link) => (
           <li
             key={link.title}
-            className={`font-bold text-main border-white border hover:border-[#E0E0E9] hover:font-normal duration-300 py-2 px-6 rounded-2xl `}
+            className={`font-bold text-custom-main border-white border hover:border-[#E0E0E9] hover:font-normal duration-300 py-2 px-6 rounded-2xl `}
           >
             <Link href={link.href}>{link.title}</Link>
           </li>

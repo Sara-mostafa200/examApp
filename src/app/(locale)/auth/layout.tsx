@@ -8,17 +8,12 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return(
-  <>
-    <main className="flex flex-col md:flex-row min-h-screen">
-        <Welcome/>
-        <section className="w-full md:w-1/2 ">
+    <main className="flex flex-col w-full md:flex-row min-h-screen">
+      <Welcome/>
+      <section className="w-full md:w-1/2">
         <AuthNav/>
-         {children}
-        
-        </section>
-      </main>
-  
- 
-  </>
+        {children}
+      </section>
+    </main>
   );
 }

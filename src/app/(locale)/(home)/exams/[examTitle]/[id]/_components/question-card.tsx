@@ -68,7 +68,7 @@ export default function QuestionCard({ questions , setcloseLayout  , setshowScor
         {/* questionNum and timer */}
         <div className="head flex items-center justify-between">
           {/* Q-numbers */}
-          <span className="text-sm font-medium text-main">
+          <span className="text-sm font-medium text-custom-main">
             Question {step + 1} of {questions.length}
           </span>
 
@@ -81,7 +81,7 @@ export default function QuestionCard({ questions , setcloseLayout  , setshowScor
           {questions.map((num , i) => (
             <div
               key={num._id}
-              className={cn("bg-[#D9D9D9] size-3 rounded-full", step >= i && "bg-main" ) }
+              className={cn("bg-[#D9D9D9] size-3 rounded-full", step >= i && "bg-custom-main" ) }
             ></div>
           ))}
         </div>

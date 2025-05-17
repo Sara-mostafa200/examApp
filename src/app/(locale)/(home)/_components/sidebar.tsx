@@ -4,9 +4,9 @@ import Image from "next/image";
 import DashboardBtn from "./dashboard-btn";
 import QuizHistoryBtn from "./quiz -history-btn";
 import Logout from "./logout";
+
 export default function SideBar() {
-    
-    
+
   return (
     <div className="w-full lg:w-1/5 flex flex-col gap-14">
       {/* logo */}

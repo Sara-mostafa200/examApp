@@ -70,7 +70,7 @@ export default function ForgotPasswordForm() {
         </div>
 
         {/* Link */}
-        <span className="text-main text-base text-end mt-4 block">
+        <span className="text-custom-main text-base text-end mt-4 block">
           <Link href="/auth/login">Remember Password ?</Link>
         </span>
 

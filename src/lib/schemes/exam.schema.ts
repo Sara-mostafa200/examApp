@@ -6,7 +6,6 @@ export const ExamSchema = z.object({
             questionId:z.string(),
             correct:z.string()
         })
-
     ),
     time: z.number(),
 })

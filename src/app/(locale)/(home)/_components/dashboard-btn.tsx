@@ -1,4 +1,5 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import { LayoutDashboard } from "lucide-react";
 import Link from "next/link";
@@ -11,8 +12,8 @@ export default function DashboardBtn() {
   return (
     <Button
       asChild
-      className={`w-full h-11 group bg-transparent rounded-xl hover:bg-main hover:text-white duration-300 text-[#696F79] ${
-        currentPath === "/dashboard" && "bg-main text-white "
+      className={`w-full h-11 group bg-transparent rounded-xl hover:bg-custom-main hover:text-white duration-300 text-[#696F79] ${
+        currentPath === "/dashboard" && "bg-custom-main text-white "
       } `}
     >
       <Link
@@ -21,7 +22,7 @@ export default function DashboardBtn() {
       >
         {/* icon */}
         <LayoutDashboard
-          className={`!size-6 text-main group-hover:text-white hover:text-white ${
+          className={`!size-6 text-custom-main group-hover:text-white hover:text-white ${
             currentPath === "/dashboard" && "text-white "
           } `}
           strokeWidth={3}

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import React, {  useEffect, useState } from "react";
 
 export default function Quizes() {
@@ -8,7 +8,6 @@ export default function Quizes() {
   const [subjectsData, setsubjectsData] = useState<Pagination<{
     subjects: Subject[];
   }> | null>(null);
-  const router = useRouter();
 
   // functions
   const getAllSubjects = async () => {
@@ -34,7 +33,7 @@ export default function Quizes() {
   return (
     <div className="w-full bg-[#FFFFFF] px-4 flex flex-col gap-6  py-8 rounded-2xl">
       {/* headline */}
-      <div className="flex w-full justify-between text-main items-center text-2xl font-medium">
+      <div className="flex w-full justify-between text-custom-main items-center text-2xl font-medium">
         <span className="">Quizes</span>
         <span className="cursor-pointer">View All</span>
       </div>
@@ -43,8 +42,8 @@ export default function Quizes() {
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 ">
        
           {subjectsData?.subjects.map((subject) => (
-            <div
-              onClick={() => router.push(`/exams/${subject.name}/${subject._id}`)}
+            <Link
+              href={`/exams/${subject.name}/${subject._id}`}
               key={subject._id}
               className=" cursor-pointer h-72 flex items-start justify-center relative  "
             >
@@ -65,7 +64,7 @@ export default function Quizes() {
                   Voluptatem aut ut dignissimos blanditiis
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
        
       </div>

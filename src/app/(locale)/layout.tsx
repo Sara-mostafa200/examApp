@@ -4,7 +4,7 @@ import { Poppins } from "next/font/google";
 import { Inter } from "next/font/google";
 import Providers from "@/components/providers";
 import { Toaster } from "@/components/ui/sonner";
-
+import { cn } from "@/lib/utils/cn";
 
 // fonts
 const poppins = Poppins({
@@ -20,19 +20,20 @@ const inter = Inter({
 
 export async function generateMetadata(): Promise<Metadata> {
   // Variables
-  const title = "application-title";
+  const title = "Elevate exam";
 
   return {
     title,
   };
 }
+
 export default function LocaleLayout({ children }: LayoutProps) {
   return (
-    <html lang="en" className={`${poppins.variable} ${inter.variable} `}>
+    <html lang="en" className={cn(poppins.variable , inter.variable)}>
       <body>
         <Providers>
-        {children}
-        <Toaster />
+          {children}
+          <Toaster />
         </Providers>
       </body>
     </html>

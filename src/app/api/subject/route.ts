@@ -8,12 +8,11 @@ export async function GET(req:NextRequest){
         headers: {
             token: headerToken?.token || ""
         }
-        
     })
 
     const payload:ApiResponse<Pagination<{subjects : Subject[]}>> = await response.json();
 
     if ("code" in payload) throw new Error(payload.message)
-    
-    return NextResponse.json(payload);
+
+    return NextResponse.json(payload , { status: response.status });
 }

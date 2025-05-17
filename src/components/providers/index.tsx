@@ -4,17 +4,17 @@ import { SidebarProvider} from '../ui/sidebar';
 import ReactQueryProvider from './_components/react-query.provider';
 
 type ProvidersProps  = {
-    children: React.ReactNode; 
-} 
+    children: React.ReactNode;
+}
 
-export default function Providers({children}:ProvidersProps) {
+export default function Providers({ children }: ProvidersProps) {
   return (
     <ReactQueryProvider>
-    <NextAuthProvider>
-      <SidebarProvider>
-      {children}
-      </SidebarProvider>
-    </NextAuthProvider>
+      <NextAuthProvider>
+        <SidebarProvider>
+          {children}
+        </SidebarProvider>
+      </NextAuthProvider>
     </ReactQueryProvider>
   )
 }

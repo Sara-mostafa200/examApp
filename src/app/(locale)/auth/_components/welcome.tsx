@@ -3,7 +3,7 @@ import React from 'react'
 import boy from "../../../../../public/assets/images/boy.png";
 export default function Welcome() {
   return (
-    <section className="w-full md:w-1/2 bg-[#F0F4FC] shadow-2xl md:rounded-tr-[6.25rem] md:rounded-br-[6.25rem] flex flex-col gap-20 items-start pt-20 pb-[10.75rem] pl-20 pr-9">
+    <section className="w-full md:w-1/2 bg-[#F0F4FC] shadow-2xl md:rounded-tr-[6.25rem] md:rounded-br-[6.25rem] flex flex-col gap-20 items-start pt-20 pl-20 pr-9">
     {/* Text */}
     <div className="flex flex-col gap-2">
       {/* Headline */}

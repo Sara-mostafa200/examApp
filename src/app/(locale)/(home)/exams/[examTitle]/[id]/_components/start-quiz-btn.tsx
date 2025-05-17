@@ -4,11 +4,9 @@ import React, { useState } from "react";
 import StartQuizOverlay from "./start-quiz-overlay";
 
 export default function StartQuizBtn({examId}:{examId :string}) {
-    // hooks
+  // hooks
   const [showLayout, setshowLayout] = useState(false);
-  
-  
-  
+
   return (
     <>
       <Button

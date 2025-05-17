@@ -118,7 +118,7 @@ export default function LoginForm() {
         </div>
 
         {/* Link */}
-        <span className="text-main text-base text-end mt-4 block">
+        <span className="text-custom-main text-base text-end mt-4 block">
           <Link href="/auth/forgot-password">Recover Password ?</Link>
         </span>
 
